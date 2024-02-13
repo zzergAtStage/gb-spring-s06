@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Rick and Morty Start Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Rick and Morty GB_BY_ZERGATSTAGE_App</a>
+    <!-- Add more navigation links if needed -->
+</nav>
+
+<div class="container">
+    <h1>Welcome to the Rick and Morty Universe!</h1>
+    <!-- Displaying data from the Rick and Morty API here -->
+    <p>Character count: <span th:text="${characterCount}">...</span></p>
+    <!-- Pagination Index -->
+    <p>Page <span th:text="${currentPage}">...</span> of <span th:text="${totalPages}">...</span></p>
+
+    <div class="row">
+        <!-- Loop through your characters and create a card for each -->
+        <div th:each="character : ${characters}" class="col-md-4">
+            <div class="card">
+                <!-- Character Image -->
+                <img th:src="${character.image}" class="card-img-top" alt="Character Image">
+                <div class="card-body">
+                    <!-- Character Name Link -->
+                    <h5 class="card-title"><a th:href="@{CharacterDetails/{id}(id=${character.id})}" th:text="${character.name}">Character Name</a></h5>
+                    <!-- Other Character Information -->
+                    <p class="card-text">Species: <span th:text="${character.species}">Unknown</span></p>
+                    <p class="card-text">Status: <span th:text="${character.state}">Unknown</span></p>
+                    <!-- Add other relevant information here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
