@@ -11,7 +11,7 @@ public class Result {
     @Id
     private Long id;
     private String name;
-    private Status state;
+    private String status;
     private String species;
     private String type;
     private String gender;
@@ -24,9 +24,9 @@ public class Result {
     private String url;
     private String created; //date LocalDateTime
 
-    private enum Status {
-        DEAD,
-        ALIVE,
-        UNKNOWN
-    }
+//    private enum Status {
+//        DEAD,
+//        ALIVE,
+//        UNKNOWN
+//    }
 }
